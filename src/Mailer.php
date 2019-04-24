@@ -104,4 +104,12 @@ class Mailer extends BaseMailer
         }
         return new Mailgun($this->key);
     }
+
+    /**
+     * @return Object Mailgun send response.
+     */
+    public function getResponse()
+    {
+        return $this->response;
+    }
 }
