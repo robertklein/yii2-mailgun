@@ -1,6 +1,6 @@
 <?php
 
-namespace boundstate\mailgun;
+namespace robertklein\mailgun;
 
 use Yii;
 use yii\base\InvalidConfigException;
@@ -16,7 +16,7 @@ use \Mailgun\Mailgun;
  * 'components' => [
  *     ...
  *     'mailer' => [
- *         'class' => 'boundstate\mailgun\Mailer',
+ *         'class' => 'robertklein\mailgun\Mailer',
  *         'key' => 'key-example',
  *         'domain' => 'mg.example.com',
  *     ],
@@ -39,7 +39,7 @@ class Mailer extends BaseMailer
     /**
      * @var string message default class name.
      */
-    public $messageClass = 'boundstate\mailgun\Message';
+    public $messageClass = 'robertklein\mailgun\Message';
 
     /**
      * @var string Mailgun API credentials.
@@ -81,7 +81,8 @@ class Mailer extends BaseMailer
     {
         Yii::info('Sending email', __METHOD__);
 
-        $this->response = $this->getMailgun()->post("{$this->domain}/messages",
+        $this->response = $this->getMailgun()->post(
+            "{$this->domain}/messages",
             $message->getMessageBuilder()->getMessage(),
             $message->getMessageBuilder()->getFiles());
 

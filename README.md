@@ -1,6 +1,6 @@
 # Mailgun
 
-Mailgun integration for the Yii framework
+Mailgun integration with response for the Yii framework
 
 ## Installation
 
@@ -9,13 +9,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist boundstate/yii2-mailgun "*"
+php composer.phar require --prefer-dist robertklein/yii2-mailgun "*"
 ```
 
 or add
 
 ```
-"boundstate/yii2-mailgun": "*"
+"robertklein/yii2-mailgun": "*"
 ```
 
 to the require section of your `composer.json` file.
@@ -28,7 +28,7 @@ Configure it in the application configuration:
 'components' => [
     ...
     'mailer' => [
-        'class' => 'boundstate\mailgun\Mailer',
+        'class' => 'robertklein\mailgun\Mailer',
         'key' => 'key-example',
         'domain' => 'mg.example.com',
     ],
