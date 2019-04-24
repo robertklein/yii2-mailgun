@@ -55,6 +55,12 @@ class Mailer extends BaseMailer
      * @var Mailgun Mailgun instance.
      */
     private $_mailgun;
+    
+    /**
+     * @var Object Mailgun send response containing `http_response_code` (with `id` and `message`) 
+     * and `http_response_body`.
+     */
+    private $response;
 
     /**
      * @return Mailgun Mailgun instance.
@@ -75,11 +81,11 @@ class Mailer extends BaseMailer
     {
         Yii::info('Sending email', __METHOD__);
 
-        $this->getMailgun()->post("{$this->domain}/messages",
+        $this->response = $this->getMailgun()->post("{$this->domain}/messages",
             $message->getMessageBuilder()->getMessage(),
             $message->getMessageBuilder()->getFiles());
 
-         return true;
+        return true;
     }
 
     /**
